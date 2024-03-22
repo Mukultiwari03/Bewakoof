@@ -1,0 +1,17 @@
+.c-btn
+{
+    font-size: 12px;
+    border: 1px solid gray;
+    padding: 0 5px;
+    display: inline;
+}
+.price
+{
+    font-size: 14px;
+    font-weight: normal;
+    text-decoration: line-through;
+}
+.disc
+{
+    font-size: 10px;
+}
