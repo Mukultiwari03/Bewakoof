@@ -1,25 +1,32 @@
-import React from 'react'
-import '../Css/Filters.css'
+import React from 'react';
+import '../Css/Filters.css';
 import Accordion from 'react-bootstrap/Accordion';
+
 function Filters(props) {
   return (
     <>
-        <Accordion className='acod' defaultActiveKey="0" flush>
-          {
-            props.data.map((row)=>{
-              return  <Accordion.Item eventKey={row.No} >
-              <Accordion.Header >{row.title}</Accordion.Header>
+      <Accordion className='acod' defaultActiveKey="0" flush>
+        {
+          props.data.map((row, index) => (
+            <Accordion.Item eventKey={row.No} key={index}>
+              <Accordion.Header>{row.title}</Accordion.Header>
               {
-                row.category.map((e)=>{
-                  return     <Accordion.Body className='py-1' onClick={() => { props.action(row.title,e) }} >{e}</Accordion.Body>
-                })
+                row.category.map((e, innerIndex) => (
+                  <Accordion.Body
+                    className='py-1'
+                    onClick={() => { props.action(row.title, e) }}
+                    key={`${row.id ?? index}-${innerIndex}`}
+                  >
+                    {e}
+                  </Accordion.Body>
+                ))
               }
             </Accordion.Item>
-            })
-          }
-    </Accordion>
+          ))
+        }
+      </Accordion>
     </>
-  )
+  );
 }
 
-export default Filters
+export default Filters;

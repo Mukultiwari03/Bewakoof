@@ -1,3 +1,17 @@
+.dhokha{
+    text-align: center;
+    position:absolute;
+    top: 23px;
+    right:98px;
+    width:12px;
+    height:12px;
+    background: red;
+    display: block;
+    border-radius: 50%;
+    color:white;
+    font-size:9px;
+}
+
 Navbar {
     border: 1px solid;
 }

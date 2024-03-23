@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import MenOutput from '../Components/MenOutput';
+import Cards from '../Components/Cards';
 import Filters from '../Components/Filters';
 import { Container } from 'react-bootstrap';
 import '../ViewsCSS/Men.css';
 
-function Men() {
+
+function Men({handleClick}) {
   const [products, setProducts] = useState([]);
   
   const filter = [
     {
       No: 0,
       title: "Category",
-      category: ["T-Shirt", "Boxer", "Vest", "Shirt", "Joggers", "Shorts", "Sweatshirt", "Hoodies", "Pyjama", "Jeans", "Jacket", "Co-Ordinates", "Track Pant", "Sweater", "Trousers", "Casual Pants", "Pant", "Tracksuit", "Kurta", "Protective Outdoor Mask", "Sweatshirt & Jogger Set", "Cloth Mask"]
+      category: ["T-Shirt", "Boxer", "Vest", "Shirt", "Joggers"]
     },
     {
       No: 1,
@@ -21,7 +22,7 @@ function Men() {
     {
       No: 2,
       title: "Brand",
-      category: ["Bewakoof®", "Bewakoof Air® 1.0", "Campus Sutra", "Xyxx", "Rigo", "Bewakoof Heavy Duty® 1.0", "Urban Scottish", "Bushirt", "What's Down", "The Daily Outfits", "Indiclub", "Rodamo", "Door 74", "Bewakoof American Pima", "Difference Of Opinion", "Flynoff", "Mad Over Print", "Shopolics", "Dillinger", "Chkokko", "Dripcult", "East Coast Way", "Old Grey", "Smugglerz", "The Dry State", "Harpita", "Dimeh", "Olavi", "Kranium", "Trends Tower", "7 Shores", "Fans Army", "Urban Legends", "Brown Mocha", "Kotty", "Showoff", "Vyve", "Blanck", "Botnia", "Dropout Society", "The Bargain Street", "Weezy", "Belliskey", "Brown Brothers", "Truebuyworld", "Vibebling"]
+      category: ["Bewakoof®", "Bewakoof Air® 1.0", "Campus Sutra", ]
     },
     {
       No: 3,
@@ -36,37 +37,27 @@ function Men() {
     {
       No: 5,
       title: "Fit",
-      category: ["hello", "Hii", "Bye"]
+      category: []
     },
     {
       No: 6,
       title: "Sleeve",
-      category: ["hello", "Hii", "Bye"]
+      category: []
     },
     {
       No: 7,
       title: "Neck",
-      category: ["hello", "Hii", "Bye"]
+      category: []
     },
     {
       No: 8,
       title: "Type",
-      category: ["hello", "Hii", "Bye"]
+      category: []
     },
     {
       No: 9,
       title: "Ratings",
-      category: ["hello", "Hii", "Bye"]
-    },
-    {
-      No: 10,
-      title: "Discount",
-      category: ["hello", "Hii", "Bye"]
-    },
-    {
-      No: 11,
-      title: "Sort By",
-      category: ["hello", "Hii", "Bye"]
+      category: []
     },
   ];
 
@@ -105,18 +96,19 @@ function Men() {
 
   return (
     <div>
-      <Container className='my-4 home'>Home  /  Clothing</Container>
+    
       <Container className='my-4 mens'>
-        <h2>Mens Clothing <span className='text-secondary'>({products.length})</span></h2>
+        <h2>Mens Clothing </h2>
+       
       </Container>
       <Container className='container-div'>
         <div className='filters'>
-          <p className='para'>Filters</p>
+     
           <Filters action={applyFilter} data={filter} />
         </div>
         <div className='Output-div'>
           {products.map((product, index) => (
-            <MenOutput key={index} data={product} />
+            <Cards key={index} data={product} handleClick={handleClick}/>
           ))}
         </div>
       </Container>
